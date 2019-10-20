@@ -7,17 +7,17 @@ namespace SeleniumCSharpEventHandlers.src.EventHandler
     {
         private static readonly object _lock = new object();
         private static EventFiringWebDriver _driver = null;
-        private IWebDriver _parentDriver;
+        private static IWebDriver _parentDriver;
 
         private EventHandlerWebDriver()
         {
 
         }
-        public IWebDriver ParentDriver
+        public static IWebDriver ParentDriver
         {
             set => _parentDriver = value;
         }
-        public EventFiringWebDriver EventFiringWebDriver
+        public static EventFiringWebDriver EventFiringWebDriver
         {
             get
             {
@@ -35,7 +35,7 @@ namespace SeleniumCSharpEventHandlers.src.EventHandler
 
         }
 
-        private void EventFiringHandler(EventFiringWebDriver firingWebDriver)
+        private static void EventFiringHandler(EventFiringWebDriver firingWebDriver)
         {
             //Navigation event handler
             firingWebDriver.Navigating += _Navigating;
