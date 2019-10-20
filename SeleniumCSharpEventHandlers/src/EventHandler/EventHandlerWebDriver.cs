@@ -26,7 +26,6 @@ namespace SeleniumCSharpEventHandlers.src.EventHandler
                     if (_driver == null)
                     {
                         _driver = new EventFiringWebDriver(_parentDriver);
-                        EventFiringHandler(_driver);
                     }
 
                     return _driver;
@@ -35,7 +34,7 @@ namespace SeleniumCSharpEventHandlers.src.EventHandler
 
         }
 
-        private static void EventFiringHandler(EventFiringWebDriver firingWebDriver)
+        public static void RegisterAllEventHandlers(EventFiringWebDriver firingWebDriver)
         {
             //Navigation event handler
             firingWebDriver.Navigating += _Navigating;
